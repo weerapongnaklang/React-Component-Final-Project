@@ -19,12 +19,12 @@ return (
     </div>
     <div>
       <div class="flex justify-center">
-        <a
-          href="Desktop_login.html"
+        <Link
+          to={"/login"}
           class="w-4/5 md:w-1/5 m-3 p-3 rounded-xl text-center bg-[#66d2e8] font-bold text-md font-inter text-white shadow-sm"
         >
           Back To Login
-        </a>
+        </Link>
       </div>
     </div>
   </div>

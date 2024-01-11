@@ -1,8 +1,9 @@
 import LeftPage from "./LeftPage";
+import { Link } from "react-router-dom";
 
 const ForgetPassword = () => {
   return (
-    <div className="flex">
+    <div class="flex">
       <LeftPage />
       <div class="flex-1 h-screen w-100 max-md:bg-none md:bg-cover bg-theme-right">
         <div class="flex flex-col h-screen">
@@ -30,12 +31,12 @@ const ForgetPassword = () => {
 
                     <p class="text-gray-400 mx-1 md:text-center">
                       Remember the password?
-                      <a
-                        href="Desktop_login.html"
-                        class="font-semibold text-sky-500 md:text-blue-950 ml-1"
+                      <Link
+                        to={"/login"}
+                        class="font-semibold text-sky-500 md:text-sky-500 ml-1"
                       >
                         Sign in
-                      </a>
+                      </Link>
                     </p>
 
                     <div class="flex justify-center mt-10">

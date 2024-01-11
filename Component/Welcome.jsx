@@ -1,5 +1,6 @@
 import React from "react";
 import LeftPage from "./LeftPage";
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
@@ -20,25 +21,25 @@ const Welcome = () => {
                 Join Now And Let's Get Moving Together.
               </p>
             </div>
-            <div class="pt-10">
+            <div class="pt-5">
               <div>
-                <a
-                  href="Desktop_login.html"
+                <Link
+                  to={"/login"}
                   class="w-3/5 block m-auto p-3 rounded-xl bg-[#66d2e8] font-bold text-md font-inter text-white text-center"
                 >
                   Login
-                </a>
+                </Link>
               </div>
               <div class="mt-2 pt-3">
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   class="w-3/5 rounded-xl m-auto block p-3 bg-gray-300 font-semibold text-md font-inter text-blue-950 text-center"
                 >
                   Get Start
-                </a>
+                </Link>
               </div>
             </div>
-            <div class="mt-10 mx-10 text-xs text-center">
+            <div class="mt-5 mx-10 text-xs text-center">
               <p>
                 By Logging In Or Registering. You Have Agreed To
                 <a

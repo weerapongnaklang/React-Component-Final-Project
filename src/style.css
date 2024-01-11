@@ -3,14 +3,14 @@ html, body {
 }
 
 .bg-theme {
-  background-image: url('public/bg-theme.png');
+  background-image: url('/React-Component-Final-Project/public/bg-theme.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
 }
 
 .bg-theme-right {
-  background-image: url('/public/bg-theme.png');
+  background-image: url('/React-Component-Final-Project/public/bg-theme.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;

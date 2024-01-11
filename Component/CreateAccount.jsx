@@ -1,4 +1,5 @@
 import LeftPage from "./LeftPage"
+import { Link } from "react-router-dom";
 
 const CreateAccount =()=>{
   return (
@@ -11,18 +12,21 @@ const CreateAccount =()=>{
         >
           <div class="my-5 md:mt-auto flex-1 md:flex-none">
             <div class="md:hidden">
-              <img class="w-1/3 mx-auto" src="image welcome/logo.png" />
+              <img
+                class="w-1/3 mx-auto"
+                src="/public/Logo.png"
+              />
             </div>
             <div class="head-login flex justify-evenly my-8 text-gray-400 font-semibold md:hidden">
               <div class="nav-login">
-                <a href="Desktop_createAcc.html" class="text-sky-400">
+                <Link to={"/createaccount"} class="text-sky-400">
                   Create Account
-                </a>
+                </Link>
               </div>
               <div>
-                <a href="Desktop_login.html" class="hover:text-sky-400">
+                <Link to={"/login"} class="hover:text-sky-400">
                   Login
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -83,9 +87,9 @@ const CreateAccount =()=>{
             <div class="flex-col hidden md:block mt-10 mx-10 text-sm text-blue-950 text-center">
               <p>
                 Already have an account?
-                <a href="Desktop_login.html" class="font-semibold ml-1">
+                <Link to={"/login"} class="font-semibold ml-1">
                   Login here.
-                </a>
+                </Link>
               </p>
             </div>
           </div>

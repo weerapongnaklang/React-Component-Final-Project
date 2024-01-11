@@ -1,4 +1,5 @@
 import LeftPage from "./LeftPage";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -11,18 +12,21 @@ const Login = () => {
         >
           <div class="my-5 md:mt-auto flex-1 md:flex-none">
             <div class="md:hidden">
-              <img class="w-1/3 mx-auto" src="image welcome/logo.png" />
+              <img
+                class="w-1/3 mx-auto"
+                src="/public/Logo.png"
+              />
             </div>
             <div class="head-login flex justify-evenly my-8 text-gray-400 font-semibold md:hidden">
               <div class="nav-login">
-                <a href="Desktop_createAcc.html" class="hover:text-sky-400">
+                <Link to={"/createaccount"} class="hover:text-sky-400">
                   Create Account
-                </a>
+                </Link>
               </div>
               <div>
-                <a href="Desktop_login.html" class="text-sky-400">
+                <Link to={"/login"} class="text-sky-400">
                   Login
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -32,7 +36,7 @@ const Login = () => {
 
             <div class="m-auto flex-1 w-4/5 mt-10">
               <label class="font-semibold mx-3" for="input-email">
-                Email address{" "}
+                Email address
               </label>
               <br />
               <input
@@ -55,12 +59,12 @@ const Login = () => {
                 required
               />
               <br />
-              <a
-                href="Desktop_forgetPass.html"
+              <Link
+                to={"/forgetpassword"}
                 class="forget-password text-sky-400 hover:text-[#4ccee8] font-semibold flex justify-end mt-3"
               >
                 Forget Password?
-              </a>
+              </Link>
               <br />
             </div>
           </div>
@@ -73,13 +77,12 @@ const Login = () => {
                 Login
               </button>
             </div>
-
             <div class="hidden md:block mt-10 mx-10 text-sm text-blue-950 text-center">
               <p>
                 Not a registered user yet?
-                <a href="Desktop_createAcc.html" class="font-semibold">
+                <Link to={"/createaccount"} class="font-semibold ml-1">
                   Sign up now!
-                </a>
+                </Link>
               </p>
             </div>
           </div>
