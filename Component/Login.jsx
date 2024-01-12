@@ -1,7 +1,12 @@
+import { useState } from "react";
 import LeftPage from "./LeftPage";
 import { Link } from "react-router-dom";
+import LoginRegisterTab from "./LoginRegisterTab";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="flex">
       <LeftPage />
@@ -12,23 +17,10 @@ const Login = () => {
         >
           <div class="my-5 md:mt-auto flex-1 md:flex-none">
             <div class="md:hidden">
-              <img
-                class="w-1/3 mx-auto"
-                src="/public/Logo.png"
-              />
+              <img class="w-1/3 mx-auto" src="/public/Logo.png" />
             </div>
-            <div class="head-login flex justify-evenly my-8 text-gray-400 font-semibold md:hidden">
-              <div class="nav-login">
-                <Link to={"/createaccount"} class="hover:text-sky-400">
-                  Create Account
-                </Link>
-              </div>
-              <div>
-                <Link to={"/login"} class="text-sky-400">
-                  Login
-                </Link>
-              </div>
-            </div>
+
+            <LoginRegisterTab currentUrl={"/login"} />
 
             <div class="text-center text-blue-950 hidden md:block">
               <h1 class="font-semibold text-2xl mb-5">Login</h1>
