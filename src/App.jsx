@@ -13,23 +13,12 @@ function App() {
     { path: "/", element: <Welcome /> },
     { path: "/login", element: <Login /> },
     { path: "/createaccount", element: <CreateAccount /> },
-    { path: "/succespassword", element: <SuccessPassWord /> },
+    { path: "/successpassword", element: <SuccessPassWord /> },
     { path: "/submitemail", element: <SubmitEmail /> },
     { path: "/forgetpassword", element: <ForgetPassword /> },
     { path: "/changepassword", element: <ChangePassword /> },
   ]);
-  return (
-    <>
-      <RouterProvider router={router} />
-      {/* <Welcome /> */}
-      {/* <Login /> */}
-      {/* <CreateAccount/> */}
-      {/* <SuccessPassWord/> */}
-      {/* <SubmitEmail /> */}
-      {/* <ForgetPassword/> */}
-      {/* <ChangePassword /> */}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
