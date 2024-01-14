@@ -1,8 +1,12 @@
-import LeftPage from "./LeftPage"
+import LeftPage from "./LeftPage";
 import { Link } from "react-router-dom";
 import LoginRegisterTab from "./LoginRegisterTab";
+import Alert from "@mui/material/Alert";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
-const CreateAccount =()=>{
+const CreateAccount = () => {
   return (
     <div className="flex">
       <LeftPage />
@@ -29,36 +33,65 @@ const CreateAccount =()=>{
                   Full name
                 </label>
                 <br />
-                <input
-                  class="border-2 p-2 rounded-lg w-full mb-3"
+                {/* <input
+                  class="border-2 p-2 rounded-lg w-full mb-1"
                   type="text"
                   id="input-name"
                   placeholder="Jonathan Whiskey"
                   required
+                /> */}
+                <TextField
+                  className=" w-full"
+                  error={false}
+                  id="input-name"
+                  placeholder="Jonathan Whiskey"
+                  helperText="Please entry your full name."
+                  sx={{ marginBottom: 2 }}
                 />
-                <label class="font-semibold mx-3" for="input-email">
-                  Email address{" "}
+                <br />
+
+                <label class="font-semibold mx-3 " for="input-email">
+                  Email address
                 </label>
                 <br />
-                <input
-                  class="border-2 p-2 rounded-lg w-full mb-3"
+                {/* <input
+                  class="border-2 p-2 rounded-lg w-full mb-1 "
                   type="email"
                   id="input-email"
                   placeholder="siberianwhisky@gmail.com"
                   required
+                /> */}
+                <TextField
+                  className=" w-full"
+                  type="email"
+                  error={false}
+                  id="input-email"
+                  placeholder="Siberainwhiskey@gmail.com"
+                  helperText="Please entry your email."
+                  sx={{ marginBottom: 2 }}
                 />
                 <br />
                 <label class="font-semibold mx-3" for="input-password">
                   Password
                 </label>
                 <br />
-                <input
-                  class="border-2 p-2 rounded-lg w-full"
+                {/* <input
+                  class="border-2 p-2 rounded-lg w-full mb-1"
                   type="password"
                   id="input-password"
                   placeholder="************"
                   required
+                /> */}
+                <TextField
+                  className=" w-full"
+                  type="password"
+                  error={false}
+                  id="input-password"
+                  placeholder="**********"
+                  helperText="Please entry your password"
                 />
+                {/* <Alert severity="error">Please entry your password.</Alert> */}
+
                 <br />
               </div>
             </div>
@@ -85,6 +118,6 @@ const CreateAccount =()=>{
       </div>
     </div>
   );
-}
+};
 
-export default CreateAccount
+export default CreateAccount;

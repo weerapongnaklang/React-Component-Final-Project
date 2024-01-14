@@ -30,7 +30,10 @@ const ForgetPassword = () => {
               <div className="my-12">
                 <div className="input-login">
                   <form action="Desktop_submitEmail.html" onSubmit={submitForm}>
-                    <label className="font-semibold mx-3 block" htmlFor="input-email">
+                    <label
+                      className="font-semibold mx-3 block"
+                      htmlFor="input-email"
+                    >
                       Email
                     </label>
                     <input
@@ -42,12 +45,12 @@ const ForgetPassword = () => {
                     />
 
                     <p className="text-gray-400 mx-1 md:text-center">
-                      Remember the password?
+                      Remember the password ?
                       <Link
                         to={"/login"}
                         className="font-semibold text-sky-500 md:text-sky-500 ml-1"
                       >
-                        Sign in
+                        Back to Login
                       </Link>
                     </p>
 

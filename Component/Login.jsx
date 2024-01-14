@@ -2,6 +2,10 @@ import { useState } from "react";
 import LeftPage from "./LeftPage";
 import { Link } from "react-router-dom";
 import LoginRegisterTab from "./LoginRegisterTab";
+import Alert from "@mui/material/Alert";
+import TextField from "@mui/material/TextField";
+import zIndex from "@mui/material/styles/zIndex";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,25 +35,45 @@ const Login = () => {
                 Email address
               </label>
               <br />
-              <input
+              {/* <input
                 class="border-2 p-2 rounded-lg w-full mb-3"
                 type="email"
                 id="input-email"
                 placeholder="siberianwhisky@gmail.com"
                 required
               />
+              <Alert severity="error">Please entry your email.</Alert> */}
+              <TextField
+                className=" w-full"
+                type="email"
+                error={false}
+                id="input-email"
+                placeholder="Siberainwhiskey@gmail.com"
+                helperText="Please entry your email."
+                sx={{ marginBottom: 2 }}
+              />
               <br />
               <label class="font-semibold mx-3" for="input-password">
                 Password
               </label>
               <br />
-              <input
+              {/* <input
                 class="border-2 p-2 rounded-lg w-full"
                 type="password"
                 id="input-password"
                 placeholder="************"
                 required
+              /> */}
+              <TextField
+                className=" w-full"
+                type="password"
+                error={false}
+                id="input-password"
+                placeholder="**********"
+                helperText={"Please entry your password"}
+                sx={{ zIndex: 1, backgroundColor: 'white' }}
               />
+              {/* <Alert severity="error">Please entry your password.</Alert> */}
               <br />
               <Link
                 to={"/forgetpassword"}
