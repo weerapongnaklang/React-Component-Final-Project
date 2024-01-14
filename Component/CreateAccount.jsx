@@ -1,12 +1,61 @@
 import LeftPage from "./LeftPage";
 import { Link } from "react-router-dom";
 import LoginRegisterTab from "./LoginRegisterTab";
-import Alert from "@mui/material/Alert";
 import * as React from "react";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import { useState } from "react";
 
 const CreateAccount = () => {
+   const [fullName, setFullName] = useState("");
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
+   const [fullNameError, setFullNameError] = useState(false);
+   const [emailError, setEmailError] = useState(false);
+   const [passwordError, setPasswordError] = useState(false);
+
+    const handleFullNameChange = (event) => {
+      const inputValue = event.target.value;
+      setFullName(inputValue);
+      setFullNameError(inputValue.trim() === "");
+    };
+
+    const handleEmailChange = (event) => {
+      const inputValue = event.target.value;
+      setEmail(inputValue);
+      setEmailError(!isValidEmail(inputValue));
+    };
+
+    const handlePasswordChange = (event) => {
+      const inputValue = event.target.value;
+      setPassword(inputValue);
+      setPasswordError(inputValue.length < 6); // ตัวอย่าง: ต้องมีอย่างน้อย 6 ตัวอักษร
+    };
+
+    const isValidEmail = (email) => {
+      // ตรวจสอบว่า email มีรูปแบบที่ถูกต้องหรือไม่
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    };
+
+    const handleSubmit = (e) => {
+      // ตรวจสอบ validation ก่อนที่จะทำการ submit หรือต้องการทำอย่างอื่น
+      setFullNameError(fullName.trim() === "");
+      setEmailError(!isValidEmail(email));
+      setPasswordError(password.length < 6);
+      e.preventDefault();
+
+      if (
+        fullName.trim() === "" ||
+        !isValidEmail(email) ||
+        password.length < 6
+      ) {
+        // ไม่ผ่าน validation
+        // สามารถทำอย่างอื่นที่ต้องการ, เช่น alert('Please enter valid information');
+      } else {
+        // ผ่าน validation
+        // ทำสิ่งที่คุณต้องการเมื่อผ่าน validation
+      }
+    };
   return (
     <div className="flex">
       <LeftPage />
@@ -42,11 +91,16 @@ const CreateAccount = () => {
                 /> */}
                 <TextField
                   className=" w-full"
-                  error={false}
+                  error={fullNameError}
                   id="input-name"
+                  value={fullName}
                   placeholder="Jonathan Whiskey"
-                  helperText="Please entry your full name."
+                  helperText={
+                    fullNameError ? "Please enter your full name." : ""
+                  }
                   sx={{ marginBottom: 2 }}
+                  pattern="[A-Za-z].{5,}"
+                  onChange={handleFullNameChange}
                 />
                 <br />
 
@@ -64,11 +118,15 @@ const CreateAccount = () => {
                 <TextField
                   className=" w-full"
                   type="email"
-                  error={false}
+                  error={emailError}
+                  value={email}
                   id="input-email"
                   placeholder="Siberainwhiskey@gmail.com"
-                  helperText="Please entry your email."
+                  helperText={
+                    emailError ? "Please enter a valid email address." : ""
+                  }
                   sx={{ marginBottom: 2 }}
+                  onChange={handleEmailChange}
                 />
                 <br />
                 <label class="font-semibold mx-3" for="input-password">
@@ -85,10 +143,17 @@ const CreateAccount = () => {
                 <TextField
                   className=" w-full"
                   type="password"
-                  error={false}
+                  error={passwordError}
+                  value={password}
                   id="input-password"
                   placeholder="**********"
-                  helperText="Please entry your password"
+                  helperText={
+                    passwordError
+                      ? "Password must be at least 6 characters."
+                      : ""
+                  }
+                  pattern="[A-Za-z0-9].{8,}"
+                  onChange={handlePasswordChange}
                 />
                 {/* <Alert severity="error">Please entry your password.</Alert> */}
 
@@ -99,6 +164,7 @@ const CreateAccount = () => {
           <div class="mb-10 md:mb-auto">
             <div>
               <button
+                onClick={handleSubmit}
                 type="submit"
                 class="w-4/5 block m-auto p-3 rounded-xl bg-[#66d2e8] hover:bg-[#39bad4] font-bold text-md text-white text-center"
               >
