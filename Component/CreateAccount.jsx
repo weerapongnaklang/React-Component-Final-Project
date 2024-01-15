@@ -6,56 +6,52 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 
 const CreateAccount = () => {
-   const [fullName, setFullName] = useState("");
-   const [email, setEmail] = useState("");
-   const [password, setPassword] = useState("");
-   const [fullNameError, setFullNameError] = useState(false);
-   const [emailError, setEmailError] = useState(false);
-   const [passwordError, setPasswordError] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullNameError, setFullNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
 
-    const handleFullNameChange = (event) => {
-      const inputValue = event.target.value;
-      setFullName(inputValue);
-      setFullNameError(inputValue.trim() === "");
-    };
+  const handleFullNameChange = (event) => {
+    const inputValue = event.target.value;
+    setFullName(inputValue);
+    setFullNameError(inputValue.trim() === "");
+  };
 
-    const handleEmailChange = (event) => {
-      const inputValue = event.target.value;
-      setEmail(inputValue);
-      setEmailError(!isValidEmail(inputValue));
-    };
+  const handleEmailChange = (event) => {
+    const inputValue = event.target.value;
+    setEmail(inputValue);
+    setEmailError(!isValidEmail(inputValue));
+  };
 
-    const handlePasswordChange = (event) => {
-      const inputValue = event.target.value;
-      setPassword(inputValue);
-      setPasswordError(inputValue.length < 6); // ตัวอย่าง: ต้องมีอย่างน้อย 6 ตัวอักษร
-    };
+  const handlePasswordChange = (event) => {
+    const inputValue = event.target.value;
+    setPassword(inputValue);
+    setPasswordError(inputValue.length < 6); // ตัวอย่าง: ต้องมีอย่างน้อย 6 ตัวอักษร
+  };
 
-    const isValidEmail = (email) => {
-      // ตรวจสอบว่า email มีรูปแบบที่ถูกต้องหรือไม่
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    };
+  const isValidEmail = (email) => {
+    // ตรวจสอบว่า email มีรูปแบบที่ถูกต้องหรือไม่
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
-    const handleSubmit = (e) => {
-      // ตรวจสอบ validation ก่อนที่จะทำการ submit หรือต้องการทำอย่างอื่น
-      setFullNameError(fullName.trim() === "");
-      setEmailError(!isValidEmail(email));
-      setPasswordError(password.length < 6);
+  const handleSubmit = (e) => {
+    // ตรวจสอบ validation ก่อนที่จะทำการ submit หรือต้องการทำอย่างอื่น
+    setFullNameError(fullName.trim() === "");
+    setEmailError(!isValidEmail(email));
+    setPasswordError(password.length < 6);
+
+    if (fullName.trim() === "" || !isValidEmail(email) || password.length < 6) {
+      // ไม่ผ่าน validation
+      // สามารถทำอย่างอื่นที่ต้องการ, เช่น alert('Please enter valid information');
       e.preventDefault();
-
-      if (
-        fullName.trim() === "" ||
-        !isValidEmail(email) ||
-        password.length < 6
-      ) {
-        // ไม่ผ่าน validation
-        // สามารถทำอย่างอื่นที่ต้องการ, เช่น alert('Please enter valid information');
-      } else {
-        // ผ่าน validation
-        // ทำสิ่งที่คุณต้องการเมื่อผ่าน validation
-      }
-    };
+    } else {
+      // ผ่าน validation
+      navigate("/login");
+    }
+  };
   return (
     <div className="flex">
       <LeftPage />
